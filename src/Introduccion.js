@@ -44,7 +44,7 @@ class Introduccion extends Component {
     const { nombre, edad, randomColor } = this.state;
     return (
       <div className="introduccion" style={{ background: randomColor }}>
-        <h2 className="introduccion__heading">Introduccion</h2>
+        <h2 className="introduccion__heading">Introducción</h2>
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
