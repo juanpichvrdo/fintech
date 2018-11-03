@@ -4,7 +4,8 @@ import "./App.scss";
 class App extends Component {
   state = {
     randomColor: "",
-    prime: 1
+    prime: 1,
+    name: "Juan Daniel"
   };
 
   randomColor = () => {
@@ -29,16 +30,31 @@ class App extends Component {
     }
   };
 
+  changeLetter = name => {
+    setTimeout(() => {
+      const nameArr = name.split("");
+      const firstLetter = nameArr.shift();
+      nameArr.push(firstLetter);
+
+      this.setState({ name: nameArr.join("") });
+    }, 500);
+  };
+
+  changePage = () => {
+    this.props.history.push("/introduccion");
+  };
+
   render() {
-    const { randomColor, prime } = this.state;
-    console.log(prime);
+    const { randomColor, prime, name } = this.state;
     return (
       <div className="App" style={{ background: randomColor }}>
-        <h1 className="page__title">Juan Daniel</h1>
+        <h1 className="page__title">{name}</h1>
         <p className="page__subtitle">jpichardopena@gmail.com</p>
         <div className="page__buttons">
-          <button onClick={this.randomColor}>Cambiar color de pagina</button>
+          <button onClick={this.randomColor}>Boton 1</button>
           <button onClick={this.primeNumber.bind(this, prime)}>{prime}</button>
+          <button onClick={this.changeLetter.bind(this, name)}>Boton 3</button>
+          <button onClick={this.changePage}>Boton 4</button>
         </div>
       </div>
     );
