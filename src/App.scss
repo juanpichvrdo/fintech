@@ -1,4 +1,112 @@
 .App {
   min-height: 100vh;
   background-size: cover;
+  display: flex;
+  padding-top: 10rem;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.page {
+  &__title {
+    font-size: 7rem;
+    font-weight: 300;
+    width: 65rem;
+    position: relative;
+    display: inline-block;
+
+    @media only screen and (max-width: 850px) {
+      display: flex;
+      padding-top: 10rem;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    &::after,
+    &::before {
+      content: "";
+      background: rgb(16, 16, 17);
+      height: 10%;
+      width: 12rem;
+      display: block;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+
+      @media only screen and (max-width: 850px) {
+        transform: translateY(200%);
+      }
+    }
+
+    &::after {
+      right: 0px;
+    }
+
+    &::before {
+      left: 0px;
+    }
+  }
+
+  &__subtitle {
+    font-size: 2.5rem;
+    margin-bottom: 5rem;
+    opacity: 0.7;
+  }
+
+  &__buttons {
+    button {
+      border: none;
+      font-weight: 700;
+      box-shadow: 1px 3px 8px rgba($color: #000000, $alpha: 0.2);
+      margin: 0 3rem;
+      padding: 2rem 4rem;
+      width: 18rem;
+      cursor: pointer;
+      border-radius: 30px;
+      transition: all 0.3s;
+      color: rgb(245, 244, 244);
+      background: rgb(16, 16, 17);
+      font-size: 2rem;
+
+      @media only screen and (max-width: 950px) {
+        margin: 0 1.5rem;
+      }
+
+      @media only screen and (max-width: 768px) {
+        margin: 2rem;
+      }
+
+      &:hover {
+        box-shadow: 2px 5px 12px rgba($color: #000000, $alpha: 0.5);
+      }
+
+      &:active {
+        transform: translateY(2px);
+      }
+    }
+  }
+}
+
+.button5 {
+  display: none;
+
+  @media only screen and (max-width: 768px) {
+    display: inline-block;
+  }
+}
+
+.dog {
+  &__container {
+    margin: 5rem auto 10rem;
+    width: 100vw;
+    height: 25rem;
+  }
+
+  &__picture {
+    border-radius: 13px;
+    height: 100%;
+    box-shadow: 3px 5px 14px rgba($color: #000000, $alpha: 0.3);
+  }
 }

@@ -2,13 +2,23 @@ import React, { Component } from "react";
 
 class Introduccion extends Component {
   state = {
+    randomColor: "",
     nombre: "",
-    edad: 1,
+    edad: "",
     color: ""
   };
+
+  componentDidMount = () => {
+    const randomColorStorage = sessionStorage.getItem("randomColor");
+    const randomColor = JSON.parse(randomColorStorage);
+
+    this.setState({ randomColor });
+  };
+
   changePage = () => {
     this.props.history.push("/");
   };
+
   handleOnChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -16,15 +26,23 @@ class Introduccion extends Component {
   handleSubmit = e => {
     e.preventDefault();
   };
+
   showAlert = () => {
     const { nombre, edad, color } = this.state;
-    const introductionText = `Mi nombre es ${nombre}, tengo ${edad} años y me gusta el ${color}.`;
-    alert(introductionText);
+
+    if (nombre && edad && color) {
+      alert(
+        `Mi nombre es ${nombre}, tengo ${edad} años y me gusta el ${color}.`
+      );
+    } else if (nombre && edad) {
+      alert(`Mi nombre es ${nombre}, tengo ${edad} años.`);
+    }
   };
+
   render() {
-    const { nombre, edad } = this.state;
+    const { nombre, edad, randomColor } = this.state;
     return (
-      <div className="introduccion">
+      <div className="introduccion" style={{ background: randomColor }}>
         <h2 className="introduccion__heading">Introduccion</h2>
         <form onSubmit={this.handleSubmit}>
           <input
