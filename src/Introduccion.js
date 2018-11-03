@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./introduccion.scss";
 
 class Introduccion extends Component {
   state = {
@@ -52,6 +53,7 @@ class Introduccion extends Component {
             name="nombre"
             placeholder="Nombre"
             required
+            className="form__input"
           />
           <input
             type="number"
@@ -60,56 +62,75 @@ class Introduccion extends Component {
             name="edad"
             placeholder="Edad"
             required
+            className="form__input"
           />
-          <label>
+          <div className="form__radioGroup">
             <input
               type="radio"
               value="rojo"
               onChange={this.handleOnChange}
               name="color"
+              className="rojo"
+              id="rojo"
             />
-            Rojo
-          </label>
-          <label>
+            <label for="rojo" className="rojo">
+              Rojo
+            </label>
+
             <input
               type="radio"
               value="azul"
               onChange={this.handleOnChange}
               name="color"
+              className="azul"
+              id="azul"
             />
-            Azul
-          </label>
-          <label>
+            <label for="azul" className="azul">
+              Azul
+            </label>
+
             <input
               type="radio"
               value="verde"
               onChange={this.handleOnChange}
               name="color"
+              className="verde"
+              id="verde"
             />
-            Verde
-          </label>
-          <label>
+            <label for="verde" className="verde">
+              Verde
+            </label>
+
             <input
               type="radio"
-              value="naranja"
+              value="amarillo"
               onChange={this.handleOnChange}
               name="color"
+              className="amarillo"
+              id="amarillo"
             />
-            Naranja
-          </label>
-          <label>
+            <label for="amarillo" className="amarillo">
+              Amarillo
+            </label>
+
             <input
               type="radio"
               value="morado"
               onChange={this.handleOnChange}
               name="color"
+              className="morado"
+              id="morado"
             />
-            Morado
-          </label>
-          <button onClick={this.changePage}>Inicio</button>
-          <button type="submit" onClick={this.showAlert}>
-            Continuar
-          </button>
+            <label for="morado" className="morado">
+              Morado
+            </label>
+          </div>
+          <div className="page__buttons">
+            <button type="submit" onClick={this.showAlert}>
+              Submit
+            </button>
+            <button onClick={this.changePage}>Inicio</button>
+          </div>
         </form>
       </div>
     );
